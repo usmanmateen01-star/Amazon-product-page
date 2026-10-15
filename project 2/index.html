@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amazon Style Products</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='45' font-size='40'%3E%E2%88%9E%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="logo" aria-label="Amazon logo">Amazon</div>
+        <nav class="category-nav" aria-label="Departments">
+          <a href="#" class="category-nav__link">All</a>
+          <a href="#" class="category-nav__link">Best Sellers</a>
+          <a href="#" class="category-nav__link">Mobiles</a>
+          <a href="#" class="category-nav__link">Fashion</a>
+          <a href="#" class="category-nav__link">Home</a>
+        </nav>
+      </div>
+
+      <div class="topbar__center">
+        <div class="search">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search products"
+            autocomplete="off"
+          />
+          <button id="searchBtn" type="button" class="search__btn">
+            Search
+          </button>
+        </div>
+      </div>
+
+      <div class="topbar__right">
+        <div class="account">Hello, Sign in</div>
+        <button id="cartToggle" class="cartBtn" type="button">
+          Cart <span id="cartCount" class="cartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero__banner">
+        <div class="hero__hint">Demo store • UI only</div>
+        <div class="hero__title">Deals of the day</div>
+        <div class="hero__subtitle">
+          Fast delivery • Great prices • New arrivals
+        </div>
+      </div>
+    </section>
+
+    <main class="page">
+      <aside class="filters" aria-label="Filters">
+        <h3 class="filters__title">Filters</h3>
+
+        <div class="filterBlock">
+          <label class="filterBlock__label">Category</label>
+          <div class="chipRow" id="categoryChips">
+            <!-- chips injected by JS -->
+          </div>
+        </div>
+
+        <div class="filterBlock">
+          <label class="filterBlock__label" for="sortSelect">Sort</label>
+          <select id="sortSelect" class="select">
+            <option value="featured">Featured</option>
+            <option value="priceAsc">Price: Low to High</option>
+            <option value="priceDesc">Price: High to Low</option>
+            <option value="ratingDesc">Rating</option>
+          </select>
+        </div>
+
+        <div class="filterBlock">
+          <label class="filterBlock__label" for="minPrice">Min price</label>
+          <input
+            id="minPrice"
+            class="rangeInput"
+            type="number"
+            min="0"
+            step="1"
+            placeholder="0"
+          />
+        </div>
+
+        <div class="filterBlock">
+          <label class="filterBlock__label" for="maxPrice">Max price</label>
+          <input
+            id="maxPrice"
+            class="rangeInput"
+            type="number"
+            min="0"
+            step="1"
+            placeholder="1000"
+          />
+        </div>
+
+        <button id="applyFilters" class="btn btn--primary" type="button">
+          Apply
+        </button>
+        <button id="clearFilters" class="btn" type="button">Clear</button>
+      </aside>
+
+      <section class="products" aria-label="Products">
+        <div class="products__top">
+          <h2 class="products__heading">Shop popular items</h2>
+          <div id="resultsMeta" class="resultsMeta"></div>
+        </div>
+
+        <div id="productGrid" class="productGrid">
+          <!-- cards injected by JS -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="cartDrawer" aria-hidden="true">
+      <div class="cartDrawer__overlay" id="cartOverlay"></div>
+      <div
+        class="cartDrawer__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Cart"
+      >
+        <div class="cartDrawer__header">
+          <div>
+            <div class="cartDrawer__title">Your Cart</div>
+            <div class="cartDrawer__sub" id="cartSub">No items yet</div>
+          </div>
+          <button
+            id="cartClose"
+            class="iconBtn"
+            type="button"
+            aria-label="Close cart"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="cartDrawer__items" id="cartItems">
+          <!-- cart items -->
+        </div>
+
+        <div class="cartDrawer__footer">
+          <div class="cartDrawer__totalRow">
+            <span>Total</span>
+            <strong id="cartTotal">$0.00</strong>
+          </div>
+          <button id="checkoutBtn" class="btn btn--primary" type="button">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__inner">Amazon-style front-end demo (UI only)</div>
+    </footer>
+
+    <script src="java.js"></script>
+  </body>
+</html>
